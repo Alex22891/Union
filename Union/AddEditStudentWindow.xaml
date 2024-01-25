@@ -1,0 +1,51 @@
+﻿<Window x:Class="Union.AddEditStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Union"
+        mc:Ignorable="d"
+        Title="Добавление/Редактирование студента" Height="397" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="ФИО:" VerticalAlignment="Center"/>
+        <TextBox x:Name="fioTextBox" Grid.Row="0" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Дата рождения:" Grid.Row="1" VerticalAlignment="Center"/>
+        <DatePicker x:Name="dobDatePicker" Grid.Row="1" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Образование:" Grid.Row="2" VerticalAlignment="Center"/>
+        <TextBox x:Name="educationTextBox" Grid.Row="2" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Адрес:" Grid.Row="3" VerticalAlignment="Center"/>
+        <TextBox x:Name="addressTextBox" Grid.Row="3" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Номер билета:" Grid.Row="4" VerticalAlignment="Center"/>
+        <TextBox x:Name="ticketNumberTextBox" Grid.Row="4" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Номер телефона:" Grid.Row="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="telephoneTextBox" Grid.Row="5" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Факультет:" Grid.Row="6" VerticalAlignment="Center"/>
+        <ComboBox x:Name="facultyComboBox" Grid.Row="6" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Группа:" Grid.Row="7" VerticalAlignment="Center"/>
+        <ComboBox x:Name="groupComboBox" Grid.Row="7" Margin="120,5,10,5" VerticalAlignment="Center" Width="200"/>
+
+        <TextBlock Text="Прочая информация:" Grid.Row="8" VerticalAlignment="Center"/>
+        <TextBox x:Name="otherInfoTextBox" Grid.Row="8" Margin="120,5,10,5" VerticalAlignment="Center" Width="200" Height="60" TextWrapping="Wrap"/>
+
+        <Button Content="Сохранить" Click="SaveButton_Click" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,65,0,0"/>
+    </Grid>
+</Window>

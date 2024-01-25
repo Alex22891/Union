@@ -1,0 +1,51 @@
+﻿<Window x:Class="Union.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Union"
+        mc:Ignorable="d"
+        Title="Учет членов профсоюза" Height="350" Width="895" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Добавить">
+                <MenuItem Header="Добавить студента" Click="AddStudentMenuItem_Click"/>
+                <MenuItem Header="Добавить в санаторий" Click="AddSanatoriumMenuItem_Click"/>
+                <MenuItem Header="Добавить оплату" Click="AddPaymentMenuItem_Click"/>
+                <MenuItem Header="Добавить период оплаты" Click="AddPaymentPeriodMenuItem_Click"/>
+                <MenuItem Header="Добавить факультет" Click="AddFacultyMenuItem_Click"/>
+                <MenuItem Header="Добавить группу" Click="AddGroupMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Отчет"/>
+        </Menu>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Информация о студенте">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="ФИО студента:"/>
+                        <TextBox x:Name="fioTextBox" Grid.Column="1"/>
+                    </Grid>
+
+                    <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Margin="0,10,0,0" Height="253" MouseDoubleClick="dataGrid_MouseDoubleClick" />
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Санаторий">
+                <DataGrid x:Name="dataGridSanatoria" AutoGenerateColumns="True" Margin="0,0,-1,0" />
+            </TabItem>
+            <TabItem Header="Оплата">
+                <DataGrid x:Name="dataGridPayment" AutoGenerateColumns="True" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
