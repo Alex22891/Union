@@ -26,11 +26,21 @@ namespace Union
             InitializeComponent();
             databaseHelper = new DatabaseHelper();
             RefreshData();
+            RefreshDataSanatorium();
+            RefreshDataPayment();
         }
 
         private void RefreshData()
         {
             dataGrid.ItemsSource = databaseHelper.GetStudents();
+        }
+        private void RefreshDataSanatorium()
+        {
+            dataGridSanatoria.ItemsSource = databaseHelper.GetSanatoria();
+        }
+        private void RefreshDataPayment()
+        {
+            dataGridPayment.ItemsSource = databaseHelper.GetPayments();
         }
 
         private void AddStudentMenuItem_Click(object sender, RoutedEventArgs e)

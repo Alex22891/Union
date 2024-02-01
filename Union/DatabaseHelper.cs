@@ -177,5 +177,70 @@ namespace Union
                 command.ExecuteNonQuery();
             }
         }
+        public List<Sanatorium> GetSanatoria()
+        {
+            List<Sanatorium> sanatoria = new List<Sanatorium>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM Sanatorium";
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Sanatorium sanatorium = new Sanatorium
+                        {
+                            Id = Convert.ToInt32(reader["id_sanatorium"]),
+                            Nbileta = Convert.ToInt32(reader["Nbileta"]),
+                            Nzaezda = Convert.ToInt32(reader["Nzaezda"]),
+                            God = reader.GetDateTime(reader.GetOrdinal("god")),
+                            NachaloZaezda = reader.GetDateTime(reader.GetOrdinal("nachalo_zaezda")),
+                            KonecZaezda = reader.GetDateTime(reader.GetOrdinal("konec_zaezda")),
+                            StatusOplaty = reader["status_oplaty"].ToString(),
+                        };
+
+                        sanatoria.Add(sanatorium);
+                    }
+                }
+            }
+
+            return sanatoria;
+        }
+        public List<Payment> GetPayments()
+        {
+            List<Payment> payments = new List<Payment>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM Payment";
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Payment payment = new Payment
+                        {
+                            IdOplaty = Convert.ToInt32(reader["id_oplaty"]),
+                            Summa = Convert.ToInt32(reader["summa"]),
+                            GodOplaty = reader.GetDateTime(reader.GetOrdinal("god_oplaty")),
+                            StatusOplaty = reader["status_oplaty"].ToString(),
+                            IdPerioda = Convert.ToInt32(reader["id_perioda"]),
+                            Nbileta = Convert.ToInt32(reader["Nbileta"]),
+                        };
+
+                        payments.Add(payment);
+                    }
+                }
+            }
+
+            return payments;
+        }
     }
 }

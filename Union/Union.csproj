@@ -115,7 +115,7 @@
     <Compile Include="Group.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Student.cs" />
-    <Compile Include="Voucher.cs" />
+    <Compile Include="Sanatorium.cs" />
     <Page Include="AddEditStudentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
